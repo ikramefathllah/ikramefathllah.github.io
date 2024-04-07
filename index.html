@@ -1,0 +1,30 @@
+<html>
+    <head>
+       <meta charset='utf-8'>
+       <script src= "angular.min.js"></script>
+       <script src="app.js"></script>
+    </head>
+    <body ng-app="ItemCheckOff">
+        <!--la div pour la liste des items a acheté-->
+        <div ng-controller="showItemToBuy as controll1">
+            <h3>list of items tO BUY</h3>
+            <input type="text" ng-model="controll1.item" placeholder="name of item">
+            <input type="text" ng-model="controll1.quantity" placeholder="quantity of item">
+            <button ng-click="controll1.addItem();">Add item</button>
+            <li ng-repeat="item in controll1.itemsToBuy">
+                buy {{item.quantity}} of {{item.item}} 
+                <button ng-click="controll1.moveItem($index);">buy</button>
+            </li>
+        </div>
+        <!--la liste des items deja acheté-->
+        <div ng-controller="showItemBought as controll2">
+            <h3>list of items BOUGHT</h3>
+            <div ng-if="controll2.itemBought.length === 0">
+                <p style="color: red;">La liste des articles déjà achetés est vide !</p>
+            </div>
+            <li ng-repeat="item in controll2.itemBought">
+                {{item.quantity}} of {{item.item}} bought
+            </li>
+        </div>
+    </body>
+</html>
