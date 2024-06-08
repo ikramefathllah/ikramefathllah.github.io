@@ -1,25 +1,24 @@
-<html>
-    <header>
+<html ng-app="MenuApp">
+    <head>
         <meta charset="utf-8">
-        <script src="angular.min.js"></script>
-        <script src="app3.js"></script>
-    </header>
-<body ng-app="SelectionItemApp">
-    <!--la div pour la liste des items a acheté-->
-    <div ng-controller="MyController as menu">
-       <input type="text" ng-model="menu.word">
-       <button ng-click="menu.searchItems()">Narrow it down for me</button>
-    
-    <!--la liste des items sélectionnés-->
-    
-        <h3>list of items</h3>
-        <ul>
-            <li ng-repeat="item in menu.categories">
-                {{item.name}} <button ng-click="menu.removeItem($index)">delete this item</button><br>
-                {{item.short_name}}  <br>
-                {{item.description}}
-            </li>
-        </ul>
-    </div>
+        
+    </head>
+<body >
+   <h1> Welcom to our restaurant</h1>
+   <div class="tabs">
+        <a ui-sref="categories">Get All Categories</a>
+   </div>
+   <ui-view></ui-view>
+
+    <script src="angular.min.js"></script>
+    <script src="angular-ui-router.min.js"></script>
+    <script src="menuapp.module.js"></script>
+    <script src="data.module.js"></script>
+    <script src="categoriesController.controller.js"></script>
+    <script src="itemsController.controller.js"></script>
+    <script src="menudata.service.js"></script>
+    <script src="routes.js"></script>
+   <script src="categories.component.js"></script>
+    <script src="items.component.js"></script>
 </body>
 </html>
