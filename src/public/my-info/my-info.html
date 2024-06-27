@@ -1,0 +1,33 @@
+
+    <div  ng-controller="MyInfoController as MyInfo">
+      <div ng-if="MyInfo.state">
+      
+    Here is your registered Info: <br>
+    {{MyInfo.user.firstName}} <br>
+    {{MyInfo.user.lastName}} <br>
+    {{MyInfo.user.email}} <br>
+    Your Favorite dish:  <br>
+   
+        <div class="row">
+          <div class="col-sm-5">
+            <div class="menu-item-photo">
+              <div>{{MyInfo.dish.short_name}}</div>
+              <img class="img-responsive" width="250" height="150" ng-src="images/menu/{{ MyInfo.category_short_name}}/{{MyInfo.dish.short_name}}.jpg" alt="{{MyInfo.dish.name}}">
+            </div>
+            <div class="menu-item-price">{{MyInfo.dish.price_small }} {{MyInfo.price_large }} <span>{{MyInfo.large_portion_name}}</span></div>
+          </div>
+          <div class="menu-item-description col-sm-7">
+            <h3 class="menu-item-title">{{MyInfo.dish.name}}</h3>
+            <p class="menu-item-details">{{MyInfo.dish.description}}</p>
+          </div>
+        </div>
+        <hr class="visible-xs">
+        
+      </div>
+      <div ng-if="!MyInfo.state">
+        <h2>You have not registred yet! follow this link to register: 
+        <a ui-sref="sign-up"> Sign up</a>
+        </h2> 
+      </div>
+      </div>
+      

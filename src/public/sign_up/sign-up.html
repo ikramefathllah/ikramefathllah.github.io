@@ -1,0 +1,30 @@
+<h1>Here you can sign up</h1>
+    <fieldset ng-controller="SignUpController as signUp">
+<legend>Sign up</legend>
+        <form name="signUpForm" novalidate ng-submit="signUp.submitForm()">
+            <div>
+            <input type="text" name="firstName" placeholder="Type your first name" ng-model="signUp.user.firstName" required>
+            <span ng-if="(signUpForm.firstName.$error.required && signUpForm.firstName.$touched)">First Name is required</span>
+        </div>
+        <div>
+            <input type="text" name="lastName" placeholder="Type your last name" required  ng-model="signUp.user.lastName">
+            <span ng-if="(signUpForm.lastName.$error.required && signUpForm.lastName.$touched)">Last Name is required</span>
+       
+        </div>
+        <div>
+            <input type="email" name="email" placeholder="your email adress" required  ng-model="signUp.user.email">
+            <span ng-if="(signUpForm.email.$invalid && signUpForm.email.$touched)">Must be a valid email adress</span>
+       
+        </div>
+        <div>
+            <input type="text" name="favorite" placeholder="The number of your favorite dish"  ng-model="signUp.user.favorite" required>
+            <span ng-if="(signUpForm.favorite.$error.required && signUpForm.favorite.$touched)">your favorite dish is required</span>
+            
+    </div>
+        <div>
+            <input ng-disabled="signUpForm.$invalid" type="submit" name="submit" >
+        </div>
+        </form>
+        <span>{{signUp.message}}</span>
+    </fieldset>
+ 

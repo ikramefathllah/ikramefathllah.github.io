@@ -1,9 +1,0 @@
-<div ng-controller="CategoriesController as categoriesList">
-    <h2>THE LIST OF CATEGORIES</h2>
-<ul>
-    <li ng-repeat="category in categoriesList.items" >
-        <a ui-sref="itemsDetail({categoryShortName:  category.short_name})">{{category.name}}</a>
-    </li>
-</ul>
-</div>
-<ui-view></ui-view>
